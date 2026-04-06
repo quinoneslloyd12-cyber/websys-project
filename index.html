@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume | Lloyd Jerick M. Quinones</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav id="navbar">
+    <div class="nav-container">
+        <span class="logo">LLOYD JERICK QUINONES</span> <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-container">
+        <div class="hero-image">
+            <img src="assets/pfp.jpg" alt="Lloyd Jerick M. Quinones" id="profile-img">
+        </div>
+
+        <div class="hero-content">
+            <h1 id="welcome-msg">IT Professional & Web Developer</h1>
+            <p class="tagline">Creating unique and powerful websites.</p>
+            <div id="theme-switch-wrapper"></div> 
+        </div>
+    </div>
+</header>
+
+<section id="about" class="container">
+    <h2>Professional Summary</h2>
+    <p>Dedicated Information Technology student specializing in full-stack web development and database management. Experienced in building scalable applications using Laravel and MariaDB.</p>
+    <button id="toggle-bio" class="btn-primary">View Core Values</button>
+    <div id="extra-bio" class="hidden-content" style="display: none;">
+        <p><strong>Goal:</strong> To leverage technical expertise in Cagayan de Oro's growing tech ecosystem.</p>
+    </div>
+</section>
+
+<section id="education" class="container">
+    <h2>Education</h2>
+    <div class="edu-item">
+        <h3>Bachelor of Science in Information Technology</h3>
+        <p>University of Science and Technology of Southern Philippines (USTP)</p>
+        <span class="date">2023 — Present</span>
+    </div>
+</section>
+
+<section id="skills" class="container">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-category">
+            <h3>Backend</h3>
+            <ul id="backend-list">
+                <li>PHP (Laravel Framework)</li>
+                <li>SQL & MariaDB Optimization</li>
+            </ul>
+        </div>
+        <div class="skill-category">
+            <h3>Tools & Design</h3>
+            <ul>
+                <li>Figma Prototyping</li>
+                <li>Linux Server Administration</li>
+            </ul>
+        </div>
+    </div>
+    <div class="skill-adder">
+        <input type="text" id="new-skill" placeholder="Add a new skill...">
+        <button id="add-skill-btn">Add to List</button>
+    </div>
+</section>
+
+<section id="projects" class="container">
+    <h2>Key Projects</h2>
+    <div class="project-grid">
+        <div class="project-card">
+            <h3>Smart Study Pod System</h3>
+            <p>Developed a revenue model and architectural prototype for automated study spaces in CDO.</p>
+        </div>
+        <div class="project-card">
+            <h3>Database Indexing Optimization</h3>
+            <p>Scaled employee datasets to 1,000+ rows to test B-Tree indexing performance.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="container">
+    <h2>Get In Touch</h2>
+    <form id="contact-form">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Message</button>
+    </form>
+    <p id="form-feedback"></p>
+</section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+</body>

@@ -1,0 +1,316 @@
+/* =========================================
+   1. VARIABLES & GLOBAL STYLES
+   ========================================= */
+:root {
+    --primary-color: #004a99;
+    --secondary-color: #00d4ff;
+    --text-color: #333;
+    --bg-color: #f0f2f5;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(120deg, #f0f2f5 0%, #c9d6ff 100%);
+    color: var(--text-color);
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================
+   2. ANIMATIONS
+   ========================================= */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes morph {
+    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
+/* =========================================
+   3. NAVIGATION (Flexbox Technique)
+   ========================================= */
+#navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+#navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+#navbar a:hover {
+    color: #ff4b2b;
+    transform: scale(1.1);
+}
+
+/* =========================================
+   4. HERO SECTION (Layout Technique)
+   ========================================= */
+.hero {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #004a99, #00d4ff);
+    color: white;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    width: 100%;
+    gap: 50px;
+}
+
+#profile-img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    padding: 8px;
+    background: linear-gradient(45deg, #ffffff, #00d4ff, #ffffff);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: var(--transition-smooth);
+    animation: morph 8s ease-in-out infinite;
+}
+
+#profile-img:hover {
+    transform: scale(1.05) rotate(2deg);
+    background: linear-gradient(45deg, #00d4ff, #ffffff, #00d4ff);
+}
+
+#welcome-msg {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   5. COMPONENTS (Cards, Forms, Inputs)
+   ========================================= */
+section {
+    scroll-margin-top: 100px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    animation: fadeInUp 1s ease-out;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* Project Cards */
+.project-card {
+    border-left: 5px solid var(--primary-color);
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    transition: var(--transition-smooth);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.project-card:hover {
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+}
+
+.skill-adder {
+    display: flex;
+    max-width: 500px;
+    margin: 25px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #e1e1e1;
+    transition: focus-within 0.3s ease;
+}
+
+.skill-adder:focus-within {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+#new-skill {
+    flex: 1;
+    border: none;
+    padding: 15px 20px;
+    font-size: 1rem;
+    outline: none;
+}
+
+#backend-list li {
+    background: #f8f9fa;
+    margin: 8px 0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border-left: 3px solid var(--secondary-color);
+    list-style: none;
+    animation: fadeInUp 0.4s ease;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.form-group input, .form-group textarea {
+    padding: 12px 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: 0.3s;
+}
+
+/* =========================================
+   6. BUTTONS
+   ========================================= */
+.btn-primary, .btn-submit, #add-skill-btn, #theme-toggle {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-submit {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+}
+
+.btn-primary:hover, .btn-submit:hover, #add-skill-btn:hover {
+    letter-spacing: 1px;
+    filter: brightness(1.1);
+}
+
+/* =========================================
+   7. THEME OVERRIDES (Dark Mode)
+   ========================================= */
+body.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .logo {
+    color: var(--primary-color) !important;
+    font-weight: 800;
+}
+
+
+.dark-mode #navbar {
+    background: rgba(30, 30, 30, 0.95); 
+}
+
+.dark-mode .logo-text {
+    color: #ffffff; 
+}
+.dark-mode .container, 
+.dark-mode .project-card,
+.dark-mode .skill-adder,
+.dark-mode #new-skill {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-color: #333;
+}
+
+.dark-mode h2, .dark-mode h3, .dark-mode .form-group label {
+    color: var(--secondary-color);
+}
+
+.dark-mode #backend-list li {
+    background: #2a2a2a;
+    color: #ffffff;
+}
+
+.dark-mode input, .dark-mode textarea {
+    background: #333;
+    color: white;
+    border: 1px solid #444;
+}
+
+
+.dark-mode .project-card:hover {
+    background: var(--secondary-color);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.4);
+    border-left-color: #ffffff;
+}
+
+
+.dark-mode .project-card:hover h3,
+.dark-mode .project-card:hover p,
+.dark-mode .project-card:hover li {
+    color: #000000 !important;
+    transition: color 0.3s ease;
+}
