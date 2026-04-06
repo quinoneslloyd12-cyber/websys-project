@@ -1,12 +1,34 @@
-window.onload = function() {
-    const visitorName = prompt("Welcome! What is your name?");
-    const welcomeMsg = document.getElementById("welcome-msg");
-    if (visitorName) {
-        welcomeMsg.style.opacity = "0";
-        welcomeMsg.innerText = `Welcome, ${visitorName}!`;
-        setTimeout(() => { welcomeMsg.style.opacity = "1"; welcomeMsg.style.transition = "2s"; }, 500);
-    }
-};
+$(document).ready(function() {
+    
+    // 1. Custom Aesthetic Prompt Logic
+    const $overlay = $('#custom-prompt-overlay');
+    const $nameInput = $('#visitor-name-input');
+    const $confirmBtn = $('#confirm-access-btn');
+
+    $confirmBtn.on('click', function() {
+        const userName = $nameInput.val().trim();
+        
+        if(userName !== "") {
+
+            $('#visitor-greeting').text(`User: ${userName}`);
+            $('#welcome-msg').text(userName);
+
+            $overlay.css('opacity', '0');
+            setTimeout(() => {
+                $overlay.hide();
+            }, 500);
+        } else {
+
+            $nameInput.css('border-color', 'red');
+            setTimeout(() => { $nameInput.css('border-color', 'var(--accent)'); }, 500);
+        }
+    });
+
+    $nameInput.on('keypress', function(e) {
+        if(e.which === 13) $confirmBtn.click();
+    });
+
+});
 
 const toggleBtn = document.getElementById("toggle-bio");
 const extraBio = document.getElementById("extra-bio");
